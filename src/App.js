@@ -46,11 +46,7 @@ class App extends Component {
     const networkId = await web3.eth.net.getId()
     // Get SystemManager
     const networkDataSM = SystemManagerABI.networks[networkId]
-    console.log("networkId: ", networkId)
-    console.log("networkDataSM: ", networkDataSM)
-    console.log("SystemManagerABI: ", SystemManagerABI)
-    console.log("SystemManagerABI.networks[networkId]: ", SystemManagerABI.networks[networkId])
-    console.log("SystemManagerABI.networks[5777]: ", SystemManagerABI.networks[5777])
+
     if (networkDataSM) {
       // Assign contract
       const systemManager = new web3.eth.Contract(SystemManagerABI.abi, networkDataSM.address)
@@ -85,10 +81,6 @@ class App extends Component {
       window.alert('EligibilityChecker contract not deployed to detected network.')
     }
 
-
-    console.log("ADMIN: ", this.state.admin)
-    console.log("ACCOUNT: ", this.state.account)
-    console.log("this.state.isAuthorized", this.state.isAuthorized)
   }
 
   constructor(props) {
