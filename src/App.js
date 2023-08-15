@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
+import "./App.css";
 import SystemManagerABI from "./build/SystemManager.json"
 import VaccineRegistryABI from "./build/VaccineRegistry.json"
 import EligibilityCheckerABI from "./build/EligibilityChecker.json"
