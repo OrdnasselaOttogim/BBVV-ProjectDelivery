@@ -100,7 +100,7 @@ class App extends Component {
           :
           <>
             {(this.state.isAuthorized) ?
-              <AuthorizedUserPage account={this.state.account} vaccineRegistry={this.state.vaccineRegistry} />
+              <AuthorizedUserPage account={this.state.account} vaccineRegistry={this.state.vaccineRegistry} eligibilityChecker={this.state.eligibilityChecker} entityList={this.state.entityList} />
               :
               <VaccineVerificationPage account={this.state.account} vaccineRegistry={this.state.vaccineRegistry} eligibilityChecker={this.state.eligibilityChecker} entityList={this.state.entityList} />
             }
