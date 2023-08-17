@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import {Form, Card, Modal, Container, Button} from 'react-bootstrap';
+import { Form, Card, Modal, Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { addressControl } from '../utils/inputControl';
+import ErrorModal from '../utils/ErrorModal';
 
 export default class AddAuthorizedUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
             loading: false,
-            show: false
+            showSuccessModal: false,
+            showErrorModal: false
         }
     }
 
@@ -21,15 +23,17 @@ export default class AddAuthorizedUser extends Component {
             console.log('Authorized user added successfully.');
             this.setState({
                 loading: false,
-                show: true
+                showSuccessModal: true
             })
         } catch (error) {
             console.error('Error:', error);
-            const errorMessage = error.message.split("revert ")[1];
-            window.alert(`Error: ${errorMessage}`);
+            const errorMessage = error.message.split("revert ")[1] || "An error occurred.";
+
             this.setState({
-                loading: false
-            })
+                loading: false,
+                showErrorModal: true,
+                modalErrorMessage: errorMessage.split('","stack')[0],
+            });
         }
     };
 
@@ -41,24 +45,29 @@ export default class AddAuthorizedUser extends Component {
                         <p className="text-center fs-3 mt-3">Add Authorized User</p>
                     </Card>
                     <Card className="mt-2 p-5 shadow">
-                        <Modal show={this.state.show} size="lg" centered>
+                        <Modal show={this.state.showSuccessModal} size="lg" centered>
                             <Modal.Header closeButton />
                             <Modal.Body><p className='p-2 fs-4 text-center'>Authorized User Added</p></Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={() => {
                                     window.location.reload()
-                                    this.setState({show:false})
+                                    this.setState({ showSuccessModal: false })
                                 }}>
                                     Close
                                 </Button>
                             </Modal.Footer>
                         </Modal>
+                        <ErrorModal
+                            show={this.state.showErrorModal}
+                            onClose={() => this.setState({ showErrorModal: false})}
+                            errorMessage={this.state.modalErrorMessage}
+                        />
                         <Form className='text-center' onSubmit={(event) => {
                             event.preventDefault()
                             const authorizedUserAddress = this.userAddress.value
                             if (addressControl(authorizedUserAddress)) {
                                 this.addAuthorizedUser(authorizedUserAddress)
-                                this.setState({ errorMessage: "" })
+                                // this.setState({ errorMessage: "" })
                             }
                             else
                                 this.setState({ errorMessage: "Invalid address. Please try again.." })
