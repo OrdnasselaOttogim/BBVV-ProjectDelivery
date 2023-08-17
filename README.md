@@ -98,7 +98,7 @@ The Ethereum blockchain serves as the decentralized ledger that stores all vacci
 
 ### **Types of account**
 
-In this system there will be 4 types of accounts with different roles and capabilities: 
+In this system there will be 4 types of accounts (excluding smart contracts) with different roles and capabilities: 
 
 
 
