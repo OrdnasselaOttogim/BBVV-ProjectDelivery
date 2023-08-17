@@ -165,7 +165,7 @@ Frontend development involves creating the user interface and designing interact
 
 * **Integration of Backend and Frontend:**
 
-The backend (smart contracts) and frontend are integrated using APIs and middleware to enable seamless communication between the two components. Data retrieval, authentication, and transaction processing are coordinated through these interfaces.
+Web3.js serves as the crucial bridge enabling the integration of the backend (smart contracts) and frontend in our dApp. This library facilitates direct interaction between the user interface and the blockchain's decentralized operations, streamlining data retrieval and transaction processing. Through Web3.js, a cohesive synergy is achieved, embodying the seamless integration of user experience with the power of smart contract functionality.
 
 
 
