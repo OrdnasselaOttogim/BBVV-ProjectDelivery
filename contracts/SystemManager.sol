@@ -21,7 +21,7 @@ contract SystemManager {
     }
 
     modifier OnlyAdmin() {
-        require(msg.sender == admin, "Only admin is allowed.");
+        require(msg.sender == admin, "Only admin is allowed");
         _;
     }
 
@@ -43,7 +43,7 @@ contract SystemManager {
     {
         require(
             addressToEntity[entityAddress].entityAddress != entityAddress,
-            "There is an entity with this address"
+            "An entity with this address already exists"
         );
         require(
             bytes(entityName).length != 0,
@@ -62,7 +62,7 @@ contract SystemManager {
     function addAuthorizedUser(address userAddress) public OnlyAdmin {
         require(
             !authorizedUserList[userAddress],
-            "There is a user with this address"
+            "A user with this address already exists"
         );
         authorizedUserList[userAddress] = true;
         emit AuthorizedUserAdded(userAddress);
@@ -71,7 +71,7 @@ contract SystemManager {
     function addVaccineToSystem(string calldata vaccineCode) public OnlyAdmin {
         require(
             !vaccineList[vaccineCode],
-            "There is a vaccine with this code"
+            "A vaccine with this code already exists"
         );
         vaccineList[vaccineCode] = true;
         emit VaccineAdded(vaccineCode);
@@ -80,7 +80,7 @@ contract SystemManager {
     function addRequirement(uint256 entityIndex, string memory vaccineCode)
         public OnlyAdmin
     {
-        require(vaccineList[vaccineCode], "Vaccine code is not in the list");
+        require(vaccineList[vaccineCode], "The vaccine code is not in the list of existing vaccines");
         require(
             bytes(addressToEntity[entityList[entityIndex]].entityName).length != 0,
             "Entity is not in the entity list"

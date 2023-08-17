@@ -42,7 +42,7 @@ contract VaccineRegistry {
         Recipient memory recipient,
         string calldata vaccineCode
     ) public OnlyAuthorized {
-        require(sm.vaccineList(vaccineCode), "Vaccine code is not in list");
+        require(sm.vaccineList(vaccineCode), "The vaccine code is not in the list of existing vaccines");
         recipientVaccineStatus[
             hashRecipientVaccineInfo(recipient, vaccineCode)
         ] = true;
@@ -71,11 +71,6 @@ contract VaccineRegistry {
             keccak256(
                 abi.encodePacked(
                     string(bytes.concat(bytes(recipient.countryCode), bytes(recipient.id), bytes(vaccineCode)))
-                    // string.concat(
-                    //     recipient.countryCode,
-                    //     recipient.id,
-                    //     vaccineCode
-                    // )
                 )
             );
     }
