@@ -147,7 +147,7 @@ The user interface of the DApp is intuitive, visually appealing, and user-friend
 
 ## **_Implementation & Development Details_**
 
-The successful implementation of the BBVV System involves meticulous planning, development, testing, and deployment. The development process follows an agile methodology, enabling iterative improvements and continuous feedback incorporation. As for the workload of the project, we assure that it has been splitted evenly between the participants, as also most of the project has been made while physically in presence together. 
+The successful implementation of the BBVV System involved planning, development and testing. The development process followed an agile methodology, enabling iterative improvements, meanwhile added and documented in the present report. As for the workload of the project, it has been splitted evenly between the participants, as also most of the project parts have been done while physically together in presence. 
 
 
 
@@ -165,7 +165,7 @@ Frontend development involves creating the user interface and designing interact
 
 * **Integration of Backend and Frontend:**
 
-The backend (smart contracts) and frontend are integrated using APIs and middleware to enable seamless communication between the two components. Data retrieval, authentication, and transaction processing are coordinated through these interfaces.
+Web3.js serves as the crucial bridge enabling the integration of the backend (smart contracts) and frontend in our dApp. This library facilitates direct interaction between the user interface and the blockchain's decentralized operations, streamlining data retrieval and transaction processing. Through Web3.js, a cohesive synergy is achieved, embodying the seamless integration of user experience with the power of smart contract functionality.
 
 
 
