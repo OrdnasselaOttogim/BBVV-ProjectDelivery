@@ -95,8 +95,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {(this.state.account === this.state.admin) ?
           <AdminPage systemManager={this.state.systemManager} account={this.state.account} entityList={this.state.entityList} />
-
+          :
+          <>
+            {(this.state.isAuthorized) ?
+              <AuthorizedUserPage account={this.state.account} vaccineRegistry={this.state.vaccineRegistry} />
+              :
+              <VaccineVerificationPage account={this.state.account} vaccineRegistry={this.state.vaccineRegistry} eligibilityChecker={this.state.eligibilityChecker} entityList={this.state.entityList} />
+            }
+          </>
+        }
       </div>
     );
   }
