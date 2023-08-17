@@ -1,20 +1,20 @@
 # **Blockchain Based Vaccine Verification System**
 
+![logo](https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/7ceb69a8-5a68-4cad-88b6-04639177c26e)
+
 
 # **_Abstract and introduction_**
 
-In our ever-evolving world where health crisis and concerns about data privacy have been increasing, there is a need for an efficient, secure system to verify individuals’ vaccination records. Current vaccine record verification systems are often cumbersome, require the sharing of personal data, and lack the integrity of the data. Furthermore, vaccine record storage varies between countries and even among different health centers. In some cases, keeping records is the responsibility of individuals, potentially leading to record loss. To better understand this concept we can use a simpler real-world scenario, for example, the Covid pandemic period in Italy. During that period, in order to access public places such as bars or hospitals, a “Green Pass” was required. This special pass was granted to people only after taking the appropriate number of Covid vaccines mandated by the Government. Once you had shown this pass to the relevant authority and scanned your QR code, they would access your personal data and cross-check with your identity card to see if you were really who you claimed to be. Additionally, all this data was stored somewhere, typically in a database. However, you as an individual, had limited knowledge and control over how this data is stored and processed and there was no guarantee of protection against potential data breaches. 
-
-This project addresses these issues by leveraging blockchain’s capabilities to develop a solution that securely stores the data and accurately verifies vaccination records without evidently keeping information about them and therefore enforcing their privacy against public and private entities entitled to check such eligibility in order to provide access to their structures. 
-
-The system we developed provides a user-friendly interface with which it is possible for everyone to demonstrate if they have a particular vaccine, as well as their eligibility to access places and their vaccination history to doctors anytime and everywhere, without the need of carrying extra documentation. Moreover, adding vaccines to the system bound to a specific user is totally secure and can be performed and monitored only by competent authorities, such as doctors or similar. The blockchain model ensures transparency and privacy and availability of the data.
-
-This Blockchain-Based Vaccine Verification System (BBVV) is an innovative way to utilize blockchain technology through a decentralized application to address the challenges associated with vaccine verification and record-keeping. This comprehensive report provides an in-depth analysis of the DApp's objectives, technology stack, system architecture, and key features. \
+In our ever-evolving world where health crisis and concerns about data privacy have been increasing, there is a need for an efficient, secure system to verify individuals’ vaccination records. Current vaccine record verification systems are often cumbersome, require the sharing of personal data, and lack the integrity of the data. Furthermore, vaccine record storage varies between countries and even among different health centers. In some cases, keeping records is the responsibility of individuals, potentially leading to record loss. \
+To better understand this concept we can use a simpler real-world scenario, for example, the Covid pandemic period in Italy. During that period, in order to access public places such as bars or hospitals, a “Green Pass” was required. This special pass was granted to people only after taking the appropriate number of Covid vaccines mandated by the Government. Once you had shown this pass to the relevant authority and scanned your QR code, they would access your personal data and cross-check with your identity card to see if you were really who you claimed to be. Additionally, all this data was stored somewhere, typically in a database. However, you as an individual, had limited knowledge and control over how this data is stored and processed and there was no guarantee of protection against potential data breaches. \
+This project addresses these issues by leveraging blockchain’s capabilities to develop a solution that securely stores the data and accurately verifies vaccination records without evidently keeping information about them and therefore enforcing their privacy against public and private entities entitled to check such eligibility in order to provide access to their structures. \
+The system we developed provides a user-friendly interface with which it is possible for everyone to demonstrate if they have a particular vaccine, as well as their eligibility to access places and their vaccination history to doctors anytime and everywhere, without the need of carrying extra documentation. Moreover, adding vaccines to the system bound to a specific user is totally secure and can be performed and monitored only by competent authorities, such as doctors or similar. The blockchain model ensures transparency and privacy and availability of the data. \
+The Blockchain-Based Vaccine Verification System (BBVV) is an innovative way to utilize blockchain technology through a decentralized application to address the challenges associated with vaccine verification and record-keeping. This comprehensive report provides an in-depth analysis of the DApp's objectives, technology stack, system architecture, and key features. \
 Amidst the global significance of vaccination in public health, the need for secure, tamper-proof, and easily accessible vaccination records has become paramount. The DApp aims to revolutionize vaccine verification by leveraging blockchain technology and providing a user-friendly interface for individuals, healthcare providers, and government agencies. \
 The primary objectives of the DApp are to create a secure and immutable repository of vaccination records, enable easy verification and access to vaccination status, and facilitate seamless communication between stakeholders in the healthcare ecosystem.
 
 
-# **_Technology stack_**
+## **_Technology stack & background_**
 
 Blockchain technology has garnered significant attention for its potential to revolutionize various industries beyond finance. The key features that make blockchain attractive for applications like the Vaccine Verification System are its decentralized nature, immutability, and transparency. \
 A blockchain is a distributed and decentralized ledger that records all transactions in a secure and immutable manner. Each transaction, also known as a block, is cryptographically linked to the previous one, forming a chain of blocks. This ensures that any attempt to alter data in a block would require modifying all subsequent blocks, making it practically impossible to tamper with the data without detection. \
@@ -27,20 +27,19 @@ The development of the BBVV System relies on two essential components: Solidity 
 This application adopts a distributed and decentralized system architecture to ensure robustness and resilience. The architecture, besides frontend and backend, obviously relies on the Ethereum blockchain.
 
 
-## **React Frontend**
+## **Frontend**
 
-The frontend of the DApp is developed using React, a popular JavaScript library for building user interfaces. React's component-based architecture and virtual DOM allow developers to create interactive and responsive user interfaces efficiently. The user interface is designed to be visually appealing, intuitive, but most importantly easy to use.
-
+The frontend of the DApp is developed using React, a popular JavaScript library for building user interfaces. React's component-based architecture and virtual DOM allow developers to create interactive and responsive user interfaces efficiently. The user interface is designed to be visually appealing, intuitive, but most importantly easy to use. \
 The frontend component is the user-facing part of the DApp, where users interact with the system through a web-based interface. It enables users to perform various actions, such as verifying vaccination status or checking the eligibility for accessing certain places. The frontend communicates with the blockchain through the deployed smart contracts by executing them to access data stored on the blockchain.
 
 
-## **Solidity Backend and Blockchain**
+## **Backend**
 
 The backend comprises three essential smart contracts developed in Solidity: System Manager, Vaccine Registry, and Eligibility Checker. These smart contracts define the rules and logic of the DApp. The System Manager contract is the core one, from which the others depend, and it manages the administrative operations; the Vaccine Registry contract stores and manages vaccination records; the Eligibility Checker contract verifies eligibility criteria for gaining access to specific entities with a certain set of vaccines. These smart contracts were developed and tested using Remix IDE. After verifying the accuracy of the functions used in the smart contracts through Remix IDE, the developed smart contract was tested on the Ethereum blockchain simulation environment Ganache provided by Truffle. 
 
 
 
-* **Smart Contracts**
+### **Smart Contracts**
 
 The DApp implements three crucial smart contracts to manage various functionalities:
 
@@ -90,14 +89,14 @@ The DApp implements three crucial smart contracts to manage various functionalit
     * _vr_: A public variable that holds an instance of the VaccineRegistry contract.
     * _constructor_: The constructor initializes variables sm and vr with the deployed contract addresses of SystemManager and VaccineRegistry.
     * Functions:
-        * _isEligible_: Determines whether a recipient is eligible for accessing an entity according to the requirements of an entity and the vaccination of the recipient. It takes _entityIndex_ and _Recipient _struct as inputs and returns a boolean value indicating eligibility. It iterates through the vaccine requirement list of the specified entity, checking if the recipient is vaccinated for each required vaccine using the _isVaccinated _function in _VaccineRegistry _contract.
-* **Ethereum Blockchain**
+        * _isEligible_: Determines whether a recipient is eligible for accessing an entity according to the requirements of an entity and the vaccination of the recipient. It takes _entityIndex_ and _Recipient _struct as inputs and returns a boolean value indicating eligibility. It iterates through the vaccine requirement list of the specified entity, checking if the recipient is vaccinated for each required vaccine using the _isVaccinated _function in _VaccineRegistry _contract.à
+### **Ethereum Blockchain**
 
 The Ethereum blockchain serves as the decentralized ledger that stores all vaccination records in a tamper-proof and immutable manner. Each vaccine transaction is recorded as a block on the blockchain, forming an unbroken chain of data. The decentralized nature of the blockchain ensures that no single entity has control over the data, mitigating the risk of data manipulation or unauthorized access.
 
 
 
-* **Types of account**
+### **Types of account**
 
 In this system there will be 4 types of accounts with different roles and capabilities: 
 
@@ -107,14 +106,11 @@ In this system there will be 4 types of accounts with different roles and capabi
 Only one node can be admin, and this happens when the blockchain is initialized for the first time and the smart contracts deployed. Afterwards, any of the previously stated operations are therefore safeguarded from unauthorized executions.
 * **Authorized User:** this account has the faculty of checking if a user has the vaccine that they claim to have, by inserting a combination of vaccine code and unique user identifier. This account can be granted, for example, to doctors or to whomever should be in charge of checking the eligibility of a citizen to enter public structures. 
 * **Entities:** an entity can be any of the public or private facilities for which a citizen is required to have any set of mandatory vaccines in order to access. Those entities can be for example schools, hospitals, public places, institutional offices, etc. Each entity comes with a modifiable set of required vaccines in order to access. 
-
-     
-
 * **Normal users:** i.e. the common citizen on whom the verification procedure happens. There can be two different approaches to identify them: one (currently used) is to leave the legislative statal authority to assign to each user a unique identifier (e.g. the identity card number or similar) and communicate it through official channels (in this case therefore a normal user is NOT a node of the blockchain). This approach is more simple and scalable than the second and also easier for final users, who just need to hold their unique code. The second approach is much harder to realize but leads to a more ordered and scalable system, that allows each user to be a node of the Ethereum blockchain and therefore possess an address to uniquely identify them. 
 * **Smart contracts:** refer to the “Smart Contracts" section.
 
 
-# **_Features of the DApp_**
+## **_Features of the DApp_**
 
 The BBVV System encompasses a comprehensive set of features designed to address the specific needs of various stakeholders. These features include:
 
@@ -149,7 +145,7 @@ Any node in the network can see and verify any transaction, making the system tr
 The user interface of the DApp is intuitive, visually appealing, and user-friendly. It features easy navigation and seamless interactions, enhancing the overall user experience.
 
 
-# **_Implementation Details_**
+## **_Implementation Details_**
 
 The successful implementation of the BBVV System involves meticulous planning, development, testing, and deployment. The development process follows an agile methodology, enabling iterative improvements and continuous feedback incorporation.
 
@@ -222,7 +218,9 @@ Scroll down to the “Add requirement” section; then, select the desired entit
 
 
 * **Actions that can be performed only by authorized users:**
+In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with authorized user privileges, i.e. with the account that has granted super privileges by the system administrator. In this case the possible action is only one, and it is:
     * _Giving a vaccine to a recipient:_
+After logging in as authorized user, locate the "Register vaccine" card. Then, insert the unique user identifier (following the adopted standard) and subsequently the country code (e.g. "IT", "EN", "DE", etc...) and the vaccine code. The vaccine code must be one approved by the central authority, i.e. it has to be some from the set the admin had created. If the vaccine code does not exist, the vaccination registration won't be allowed.
 
 <img width="1303" alt="give vaccine" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/870783f1-6ff9-4c8a-907f-a93c005186c2">
 
@@ -231,7 +229,7 @@ Scroll down to the “Add requirement” section; then, select the desired entit
 
 We now outline the various components that constitute the business model of this system. Each component is analyzed in the following list:
 
-**Customer Segments**
+### **Customer Segments**
 
 The BBVV System caters to various customer segments, each with distinct needs and requirements:
 
@@ -239,7 +237,7 @@ The BBVV System caters to various customer segments, each with distinct needs an
 - Healthcare Providers: Doctors, nurses, and medical professionals play a critical role in administering vaccines and maintaining accurate vaccination records. The DApp allows healthcare providers to update vaccination data on the blockchain securely, issue digital certificates to patients, and access vaccination histories for medical purposes.
 - Government Agencies: Government entities, such as the Ministry of Health, are key stakeholders in the vaccine verification process. The DApp can be utilized by these agencies to ensure the validity and authenticity of vaccination records for citizens, especially in scenarios like international travel or access to public facilities.
     
-**Value Propositions**
+### **Value Propositions**
 
 The BBVV System offers several compelling value propositions to its users:
 
@@ -248,7 +246,7 @@ The BBVV System offers several compelling value propositions to its users:
 - Convenient Access: The DApp provides a user-friendly interface for individuals and healthcare providers to access vaccination records. Users can easily verify their vaccination status and obtain digital certificates without the need for physical documentation.
 - Seamless Integration: The DApp can be integrated with existing healthcare systems and government databases, ensuring interoperability and smooth adoption for healthcare providers and government agencies.
     
-**Channels**
+### **Channels**
 
 The distribution and marketing of the BBVV System will utilize various channels:
 
@@ -256,7 +254,7 @@ The distribution and marketing of the BBVV System will utilize various channels:
 - Healthcare Institutions: Collaborating with healthcare institutions will allow the DApp to be adopted within medical facilities. Doctors and nurses can directly issue digital certificates to patients using the DApp, creating a seamless user experience.
 - Government Partnerships: Establishing partnerships with government agencies responsible for healthcare and vaccination programs will facilitate the adoption of the DApp at a national level. Such partnerships can lead to official endorsements and mandates for vaccine verification using the DApp.
     
-**Customer Relationship**
+### **Customer Relationship**
 
 Building and maintaining strong customer relationships are crucial for the success of the BBVV System:
 
@@ -264,42 +262,41 @@ Building and maintaining strong customer relationships are crucial for the succe
 - Feedback Mechanism: The DApp will include a feedback mechanism to gather user feedback and suggestions for improvement. This valuable input will be used to enhance the DApp's functionalities and user experience.
 - Regular Updates: The development team will ensure regular updates and improvements to the DApp to address emerging needs and challenges.
     
-**Revenue Stream**
+### **Revenue Stream**
 
 The BBVV System can generate revenue through various streams:
 
-- Transaction Fees: Healthcare providers may be charged a small transaction fee when issuing digital vaccination certificates using the DApp.
-- Subscription Model: Healthcare institutions and government agencies can opt for subscription plans that provide additional features and services tailored to their needs. This model would be necessary if and only if no public funding is expected.
-- Advertisements: Initially, establishing a strong foundation for a startup might involve depending on funds from external advertising firms. This approach can be discarded once the company achieves greater financial stability due to a larger user community, or if it gains support from the government to cover expenses as the official vaccine record.
+- Government funding: In the hypothetical scenario in which the BBVV is selected as official country vaccine verification method, generate revenue through public funds and taxes allocated for the development and maintenance of the application.
+- Transaction fees: Charge businesses and venues a nominal fee for each verification transaction, covering operational costs.
     
-**Key Resources**
+### **Key Resources**
 
 The successful operation of the BBVV System relies on essential resources:
 - Blockchain Infrastructure: Access to the Ethereum blockchain network or other compatible blockchains is essential for storing and managing vaccination records.
 - Technology Expertise: Skilled developers and blockchain experts are crucial for the development and maintenance of the DApp.
 - Secure Data Storage: Robust and secure data storage solutions are necessary to protect user data and vaccination records.
     
-**Key Activities**
+### **Key Activities**
 
 The key activities involved in operating the BBVV System include:
 - Smart Contract Development: Continuously updating and maintaining the smart contracts to ensure accuracy, security, and functionality.
 - User Interface Updates: Regularly improving the user interface to enhance user experience and accessibility.
 - Integration and Collaboration: Collaborating with healthcare providers, government agencies, and other stakeholders for seamless integration and adoption of the DApp.
 
-**Key Partners**
+### **Key Partners**
 
 Strategic partnerships are vital for the success of the BBVV System:
 - Healthcare Providers: Partnering with healthcare institutions and clinics will facilitate the adoption of the DApp within the healthcare ecosystem.
 - Government Authorities: Collaboration with government agencies responsible for vaccination programs will lead to official endorsements and widespread adoption.
 
-**Cost Structure**
+### **Cost Structure**
 
 The cost structure of the Blockchain-Based Vaccine Verification System includes various components:
 - Development and Maintenance: Expenses related to smart contract development, frontend updates, and ongoing maintenance of the DApp.
 - Blockchain Transactions: Costs associated with blockchain transactions and gas fees.
-- Marketing and Promotion: Investment in marketing and promotional campaigns to increase awareness and adoption of the DApp.
+- Marketing and Promotion: Investment in marketing and promotional campaigns to increase awareness and adoption of the DApp at national level.
 
 
-# **_Conclusion_**
+## **_Conclusion_**
 
 The Blockchain-Based Vaccine Verification System presents a groundbreaking solution to the challenges of vaccine verification. With its secure and transparent approach, the DApp offers immense potential to revolutionize vaccine record-keeping and accessibility while ensuring data privacy and security. By aligning its business model with the needs of various stakeholders, the DApp is poised to make a significant impact on the national healthcare landscape.
