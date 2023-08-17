@@ -195,7 +195,7 @@ The user guide provides step-by-step instructions on how to use the BBVV System 
 
 
 
-* _Granting an account superior privileges:_
+   * _Granting an account superior privileges:_
   
 Administrator can decide to make an account become an _authorized user_: scroll down to the “Add authorized user” section and enter the public address of the account; finally, press “Add”.
 
@@ -210,7 +210,9 @@ Administrator can also decide to make an account an _entity_: scroll to the “A
 
 
 
-* _Adding a requirement to an entity:_
+   * _Adding a requirement to an entity:_
+
+  
 Scroll down to the “Add requirement” section; then, select the desired entity from the dropdown menu; a list of all existing entities will be shown; finally, add the vaccine code to add to that entity’s constraints and press the “Add” button. Note that if you wrote a non existing vaccine code, the system correctly wouldn’t allow it, notifying the error back to the user.
 
 <img width="1302" alt="add requirement" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/7cb26f9c-ca2d-4121-b9a1-c9dcb3ad268b">
@@ -218,8 +220,11 @@ Scroll down to the “Add requirement” section; then, select the desired entit
 
 
 * **Actions that can be performed only by authorized users:**
+  
 In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with authorized user privileges, i.e. with the account that has granted super privileges by the system administrator. In this case the possible action is only one, and it is:
-    * _Giving a vaccine to a recipient:_
+
+   * _Giving a vaccine to a recipient:_
+
 After logging in as authorized user, locate the "Register vaccine" card. Then, insert the unique user identifier (following the adopted standard) and subsequently the country code (e.g. "IT", "EN", "DE", etc...) and the vaccine code. The vaccine code must be one approved by the central authority, i.e. it has to be some from the set the admin had created. If the vaccine code does not exist, the vaccination registration won't be allowed.
 
 <img width="1303" alt="give vaccine" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/870783f1-6ff9-4c8a-907f-a93c005186c2">
