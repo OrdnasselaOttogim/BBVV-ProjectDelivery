@@ -5,7 +5,9 @@ class ErrorModal extends Component {
   render() {
     return (
       <Modal show={this.props.show} size="lg" centered onHide={this.props.onClose}>
-        <Modal.Header closeButton />
+        <Modal.Header closeButton >
+        <Modal.Title className="text-center w-100 text-danger">ERROR</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
           <p className="p-2 fs-4 text-center text-danger">{this.props.errorMessage}</p>
         </Modal.Body>

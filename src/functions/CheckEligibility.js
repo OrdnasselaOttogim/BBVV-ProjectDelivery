@@ -24,7 +24,6 @@ export default class CheckEligibility extends Component {
             countryCode
         ];
         this.setState({ loading: true })
-        console.log("eligibilityChecker", this.props.eligibilityChecker)
         try {
             const isEligible = await this.props.eligibilityChecker.methods.isEligible(parseInt(entityIndex, 10), recipient).call()
             this.setState({

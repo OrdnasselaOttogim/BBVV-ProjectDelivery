@@ -15,12 +15,9 @@ export default class AddAuthorizedUser extends Component {
     }
 
     addAuthorizedUser = async (authorizedUserAddress) => {
-        console.log("add authorized user system manager: ", this.props.systemManager)
-
         this.setState({ loading: true })
         try {
             await this.props.systemManager.methods.addAuthorizedUser(authorizedUserAddress).send({ from: this.props.account });
-            console.log('Authorized user added successfully.');
             this.setState({
                 loading: false,
                 showSuccessModal: true
@@ -67,7 +64,7 @@ export default class AddAuthorizedUser extends Component {
                             const authorizedUserAddress = this.userAddress.value
                             if (addressControl(authorizedUserAddress)) {
                                 this.addAuthorizedUser(authorizedUserAddress)
-                                // this.setState({ errorMessage: "" })
+                                this.setState({ errorMessage: "" })
                             }
                             else
                                 this.setState({ errorMessage: "Invalid address. Please try again.." })

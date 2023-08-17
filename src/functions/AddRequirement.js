@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Card, Modal, Container, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ErrorModal from '../utils/ErrorModal';
 
 export default class AddRequirement extends Component {
     constructor(props) {
@@ -8,7 +9,8 @@ export default class AddRequirement extends Component {
         this.state = {
             vaccineCode: "",
             loading: false,
-            show: false
+            showSuccessModal: false,
+            showErrorModal: false
         }
     }
 
@@ -17,28 +19,26 @@ export default class AddRequirement extends Component {
     }
 
     addRequirement = async (entityIndex, vaccineCode) => {
-        console.log("vaccinecode: ", vaccineCode)
-        console.log("entity index: ", entityIndex)
 
         this.setState({ loading: true })
         try {
             await this.props.systemManager.methods.addRequirement(parseInt(entityIndex, 10), vaccineCode).send({ from: this.props.account });
-            console.log('Requirement added to entity successfully.');
             this.setState({
                 loading: false,
-                show: true
+                showSuccessModal: true
             })
         } catch (error) {
             console.error('Error', error);
-            window.alert(`Error: ${error.message}`);
+            const errorMessage = error.message.split("revert ")[1] || "An error occurred.";
             this.setState({
-                loading: false
+                loading: false,
+                showErrorModal: true,
+                modalErrorMessage: errorMessage.split('","stack')[0],
             })
         }
     };
 
     render() {
-        console.log("ENTITY LIST: ", this.props.entityList)
         return (
             <div>
                 <Container >
@@ -46,18 +46,23 @@ export default class AddRequirement extends Component {
                         <p className="text-center fs-3 mt-3">Add Requirement</p>
                     </Card>
                     <Card className="mt-2 p-5 shadow">
-                        <Modal show={this.state.show} size="xxl" centered>
+                        <Modal show={this.state.showSuccessModal} size="xxl" centered>
                             <Modal.Header closeButton />
                             <Modal.Body><p className='p-2 fs-4 text-center'>Requirement Added</p></Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={() => {
                                     window.location.reload()
-                                    this.setState({ show: false })
+                                    this.setState({ showSuccessModal: false })
                                 }}>
                                     Close
                                 </Button>
                             </Modal.Footer>
                         </Modal>
+                        <ErrorModal
+                            show={this.state.showErrorModal}
+                            onClose={() => this.setState({ showErrorModal: false})}
+                            errorMessage={this.state.modalErrorMessage}
+                        />
                         <Form className='text-center' onSubmit={(event) => {
                             event.preventDefault()
                             const entityIndex = this.state.entityIndex
