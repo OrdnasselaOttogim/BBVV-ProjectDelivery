@@ -145,9 +145,9 @@ Any node in the network can see and verify any transaction, making the system tr
 The user interface of the DApp is intuitive, visually appealing, and user-friendly. It features easy navigation and seamless interactions, enhancing the overall user experience.
 
 
-## **_Implementation Details_**
+## **_Implementation & Development Details_**
 
-The successful implementation of the BBVV System involves meticulous planning, development, testing, and deployment. The development process follows an agile methodology, enabling iterative improvements and continuous feedback incorporation.
+The successful implementation of the BBVV System involves meticulous planning, development, testing, and deployment. The development process follows an agile methodology, enabling iterative improvements and continuous feedback incorporation. As for the workload of the project, we assure that it has been splitted evenly between the participants, as also most of the project has been made while physically in presence together. 
 
 
 
@@ -171,7 +171,7 @@ The backend (smart contracts) and frontend are integrated using APIs and middlew
 
 * **Testing and Quality Assurance Procedures:**
 
-Comprehensive testing procedures, including unit testing on smart contracts and on single smart contracts functions, integration testing, and user acceptance testing, are conducted to identify and resolve any potential issues or bugs. Quality assurance measures ensure the DApp meets the desired performance, security, and usability standards.
+Comprehensive testing procedures, including unit testing on every single smart contracts' functions, have been conducted to identify and resolve any potential issues or bugs. Quality assurance measures ensure the DApp meets the desired performance, security, and usability standards.
 
 
 # **_User Guide & Instructions_**
