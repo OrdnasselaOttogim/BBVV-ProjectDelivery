@@ -203,7 +203,7 @@ Administrator can decide to make an account become an _authorized user_: scroll 
 
 
 
-Administrator can also decide to make an account an _entity_: scroll to the “Add entity” section; put the public address of the desired account and select a name to best represent that entity. As for vaccine names, the standardization of entities’ names is alike a government concern.
+The administrator can also decide to make an account an _entity_. In order to perform this action, scroll to the “Add entity” section; put the public address of the desired account and select a name to best represent that entity. As for vaccine names, the standardization of entities’ names is alike a government concern.
 
 <img width="1303" alt="add entity" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/f65b8f39-c811-485e-a257-8675aa15d380">
 
@@ -220,10 +220,13 @@ Scroll down to the “Add requirement” section; then, select the desired entit
 
 
 * **Actions that can be performed only by authorized users:**
+
+
   
 In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with authorized user privileges, i.e. with the account that has granted super privileges by the system administrator. In this case the possible action is only one, and it is:
 
    * _Giving a vaccine to a recipient:_
+
 
 After logging in as authorized user, locate the "Register vaccine" card. Then, insert the unique user identifier (following the adopted standard) and subsequently the country code (e.g. "IT", "EN", "DE", etc...) and the vaccine code. The vaccine code must be one approved by the central authority, i.e. it has to be some from the set the admin had created. If the vaccine code does not exist, the vaccination registration won't be allowed.
 
