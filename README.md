@@ -184,18 +184,18 @@ The user guide provides step-by-step instructions on how to use the BBVV System 
 
 * **Actions that can be performed only by system administrator:**
 
-In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with administrator privileges, i.e. with the account that deployed first the contracts to the blockchain. These actions include:
+    In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with administrator privileges, i.e. with the account that deployed first the contracts to the blockchain. These actions include:
 
     * _Registration of vaccine (adding a new vaccine to the system):_
 
-Scroll down until the “Add Vaccine” section and then insert the vaccine code. The standardization of vaccine code names is nothing of our concern, but it would be decided and agreed by the state authority.
+    Scroll down until the “Add Vaccine” section and then insert the vaccine code. The standardization of vaccine code names is nothing of our concern, but it would be decided and agreed by the state authority.
 
 
 <img width="1302" alt="add vaccine" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/03d17596-34b9-4b6e-ac3a-f1c238c96ecb">
 
 
 
-    * _Granting an account superior privileges:_
+   * _Granting an account superior privileges:_
   
 Administrator can decide to make an account become an _authorized user_: scroll down to the “Add authorized user” section and enter the public address of the account; finally, press “Add”.
 
@@ -210,7 +210,7 @@ The administrator can also decide to make an account an _entity_. In order to pe
 
 
 
-    * _Adding a requirement to an entity:_
+   * _Adding a requirement to an entity:_
 
   
 Scroll down to the “Add requirement” section; then, select the desired entity from the dropdown menu; a list of all existing entities will be shown; finally, add the vaccine code to add to that entity’s requirements and press the “Add” button. Note that if you wrote a non existing vaccine code, the system correctly wouldn’t allow it, notifying the error back to the user.
@@ -225,7 +225,7 @@ Scroll down to the “Add requirement” section; then, select the desired entit
   
 In order to perform these kinds of actions, you need to be logged in to your Metamask wallet with authorized user privileges, i.e. with the account that has been granted privileges by the system administrator. In this case, the possible action is only one, and it is:
 
-    * _Giving a vaccine to a recipient:_
+   * _Giving a vaccine to a recipient:_
 
 
 After logging in as an authorized user, locate the "Register vaccine" card. Then, insert the unique user identifier (following the adopted standard) and subsequently the country code (e.g. "IT", "EN", "DE", etc...) and the vaccine code. The vaccine code must be one approved by the central authority, i.e. it has to be some from the set the admin had created. If the vaccine code does not exist, vaccination registration won't be allowed.
