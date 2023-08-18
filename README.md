@@ -8,7 +8,7 @@
 In our ever-evolving world where health crisis and concerns about data privacy have been increasing, there is a need for an efficient, secure system to verify individuals’ vaccination records. Current vaccine record verification systems are often cumbersome, require the sharing of personal data, and lack the integrity of the data. Furthermore, vaccine record storage varies between countries and even among different health centers. In some cases, keeping records is the responsibility of individuals, potentially leading to record loss. \
 To better understand this concept we can use a simpler real-world scenario, for example, the Covid pandemic period in Italy. During that period, in order to access public places such as bars or hospitals, a “Green Pass” was required. This special pass was granted to people only after taking the appropriate number of Covid vaccines mandated by the Government. Once you had shown this pass to the relevant authority and scanned your QR code, they would access your personal data and cross-check with your identity card to see if you were really who you claimed to be. Additionally, all this data was stored somewhere, typically in a database. However, you as an individual, had limited knowledge and control over how this data is stored and processed and there was no guarantee of protection against potential data breaches. \
 This project addresses these issues by leveraging blockchain’s capabilities to develop a solution that securely stores the data and accurately verifies vaccination records without evidently keeping information about them and therefore enforcing their privacy against public and private entities entitled to check such eligibility in order to provide access to their structures. \
-The system we developed provides a user-friendly interface with which it is possible for everyone to demonstrate if they have a particular vaccine, as well as their eligibility to access places and their vaccination history to doctors anytime and everywhere, without the need of carrying extra documentation. Moreover, adding vaccines to the system bound to a specific user is totally secure and can be performed and monitored only by competent authorities, such as doctors or similar. The blockchain model ensures transparency and privacy and availability of the data. \
+The system we developed provides a user-friendly interface with which everyone can demonstrate if they have a particular vaccine, as well as their eligibility to access places, anytime and everywhere, without the need of carrying extra documentation. Moreover, adding vaccines to the system bound to a specific user is totally secure and can be performed and monitored only by competent authorities, such as doctors or similar. The blockchain model ensures transparency and privacy and availability of the data. \
 The Blockchain-Based Vaccine Verification System (BBVV) is an innovative way to utilize blockchain technology through a decentralized application to address the challenges associated with vaccine verification and record-keeping. This comprehensive report provides an in-depth analysis of the DApp's objectives, technology stack, system architecture, and key features. \
 Amidst the global significance of vaccination in public health, the need for secure, tamper-proof, and easily accessible vaccination records has become paramount. The DApp aims to revolutionize vaccine verification by leveraging blockchain technology and providing a user-friendly interface for individuals, healthcare providers, and government agencies. \
 The primary objectives of the DApp are to create a secure and immutable repository of vaccination records, enable easy verification and access to vaccination status, and facilitate seamless communication between stakeholders in the healthcare ecosystem.
@@ -19,7 +19,7 @@ The primary objectives of the DApp are to create a secure and immutable reposito
 Blockchain technology has garnered significant attention for its potential to revolutionize various industries beyond finance. The key features that make blockchain attractive for applications like the Vaccine Verification System are its decentralized nature, immutability, and transparency. \
 A blockchain is a distributed and decentralized ledger that records all transactions in a secure and immutable manner. Each transaction, also known as a block, is cryptographically linked to the previous one, forming a chain of blocks. This ensures that any attempt to alter data in a block would require modifying all subsequent blocks, making it practically impossible to tamper with the data without detection. \
 The concept of vaccine verification systems is not entirely new, as numerous initiatives and projects have attempted to create centralized databases for vaccine records. However, these systems often face challenges related to data privacy, security breaches, and interoperability. The inherent transparency and security of blockchain technology offer a promising solution to these issues. \
-The development of the BBVV System relies on two essential components: Solidity for the backend smart contract development and React for the frontend user interface.
+This project utilizes the Ethereum blockchain, Solidity smart contracts, React frontend, and Truffle development framework to create a decentralized application for managing user authorization and vaccine records.
 
 
 # **_System Architecture_**
@@ -30,12 +30,13 @@ This application adopts a distributed and decentralized system architecture to e
 ## **Frontend**
 
 The frontend of the DApp is developed using React, a popular JavaScript library for building user interfaces. React's component-based architecture and virtual DOM allow developers to create interactive and responsive user interfaces efficiently. The user interface is designed to be visually appealing, intuitive, but most importantly easy to use. \
-The frontend component is the user-facing part of the DApp, where users interact with the system through a web-based interface. It enables users to perform various actions, such as verifying vaccination status or checking the eligibility for accessing certain places. The frontend communicates with the blockchain through the deployed smart contracts by executing them to access data stored on the blockchain.
+The frontend component is the user-facing part of the DApp, where users interact with the system through a web-based interface. It enables users to perform various actions, such as verifying vaccination status or checking the eligibility for accessing certain places.
+Web3.js is utilized on the frontend to connect with the Ethereum blockchain. It enables the frontend to send transactions, and retrieve data, providing users with immediate feedback on the transaction status.
 
 
 ## **Backend**
 
-The backend comprises three essential smart contracts developed in Solidity: System Manager, Vaccine Registry, and Eligibility Checker. These smart contracts define the rules and logic of the DApp. The System Manager contract is the core one, from which the others depend, and it manages the administrative operations; the Vaccine Registry contract stores and manages vaccination records; the Eligibility Checker contract verifies eligibility criteria for gaining access to specific entities with a certain set of vaccines. These smart contracts were developed and tested using Remix IDE. After verifying the accuracy of the functions used in the smart contracts through Remix IDE, the developed smart contract was tested on the Ethereum blockchain simulation environment Ganache provided by Truffle. 
+The backend comprises three essential smart contracts developed in Solidity: System Manager, Vaccine Registry, and Eligibility Checker. These smart contracts define the rules and logic of the DApp. The System Manager contract is the core one, from which the others depend, and it manages the administrative operations; the Vaccine Registry contract stores and manages vaccination records; the Eligibility Checker contract verifies eligibility criteria for gaining access to specific entities with a certain set of required vaccines. These smart contracts were developed and tested using Remix IDE. After verifying the accuracy of the functions used in the smart contracts through Remix IDE, the developed smart contract was tested on the Ethereum blockchain simulation environment Ganache provided by Truffle. 
 
 
 
@@ -102,11 +103,11 @@ In this system there will be 4 types of accounts (excluding smart contracts) wit
 
 
 
-* **System Administrator:** in charge of granting the status of “Authorized User” to any node of the blockchain. Moreover they can add new vaccines and entities to the system, and create the list of vaccines required for each entity. In a real world scenario this account should be impersonated by the central statal authority, for example Ministry of Health, in charge of choosing the recognized vaccines and delegating subordinated authorities.  \
-Only one node can be admin, and this happens when the blockchain is initialized for the first time and the smart contracts deployed. Afterwards, any of the previously stated operations are therefore safeguarded from unauthorized executions.
-* **Authorized User:** this account has the faculty of checking if a user has the vaccine that they claim to have, by inserting a combination of vaccine code and unique user identifier. This account can be granted, for example, to doctors or to whomever should be in charge of checking the eligibility of a citizen to enter public structures. 
+* **System Administrator:** in charge of granting the status of “Authorized User” to any node of the blockchain. Moreover, they can add new vaccines and entities to the system, and create the list of vaccines required for each entity. In a real world scenario, this account should be impersonated by the central statal authority, for example, the Ministry of Health, in charge of choosing the recognized vaccines and delegating subordinated authorities.  \
+Only one node can be admin, and this happens when the blockchain is initialized for the first time and the smart contracts are deployed. Afterward, any of the previously stated operations are therefore safeguarded from unauthorized executions.
+* **Authorized User:** authorized to register vaccines to the recipients by entering the vaccine code, and the unique user identifier of the recipient. Additionally, this account has all the capabilities of a normal user. This account can be granted, for example, to doctors or to whoever should be in charge of keeping the vaccine information. 
 * **Entities:** an entity can be any of the public or private facilities for which a citizen is required to have any set of mandatory vaccines in order to access. Those entities can be for example schools, hospitals, public places, institutional offices, etc. Each entity comes with a modifiable set of required vaccines in order to access. 
-* **Normal users:** i.e. the common citizen on whom the verification procedure happens. There can be two different approaches to identify them: one (currently used) is to leave the legislative statal authority to assign to each user a unique identifier (e.g. the identity card number or similar) and communicate it through official channels (in this case therefore a normal user is NOT a node of the blockchain). This approach is more simple and scalable than the second and also easier for final users, who just need to hold their unique code. The second approach is much harder to realize but leads to a more ordered and scalable system, that allows each user to be a node of the Ethereum blockchain and therefore possess an address to uniquely identify them. 
+* **Normal users:** this account has the faculty of checking if a user has the vaccine that they claim to have, by inserting a vaccine code and unique user identifier. For the identification of the users, there can be two different approaches: one (currently used) is to leave the legislative statal authority to assign to each user a unique identifier (e.g. the identity card number or similar) and communicate it through official channels (in this case therefore a normal user is NOT a node of the blockchain). This approach is more simple and scalable than the second and also easier for final users, who just need to hold their unique code. The second approach is much harder to realize but leads to a more ordered and scalable system, that allows each user to be a node of the Ethereum blockchain and therefore possess an address to uniquely identify them. Furthermore, anyone who is in charge of checking the eligibility of a citizen to enter public structures can also be classified as a normal user.
 * **Smart contracts:** refer to the “Smart Contracts" section.
 
 
@@ -118,25 +119,25 @@ The BBVV System encompasses a comprehensive set of features designed to address 
 
 * **No need for user registration:**
 
-The DApp allows users to utilize the system without the need of registering or creating an account. All they need to do is just to keep their public key (or alternatively a wallet like Metamask) and communicate it when necessary.
+The DApp allows users to utilize the system without the need of registering or creating an account. All they need to do is just to keep their Ethereum wallets(with the browser extension MetaMask) to interact with the DApp.
 
 
 
 * **Vaccine Verification and Issuance:**
 
-Users can verify their vaccination status only by submitting their PK as just stated. Any other personal data are not required. Healthcare providers and authorized entities can issue digital vaccination certificates on the blockchain.
+Users can verify their vaccination status only by submitting their user identifier, country code and the vaccine code as stated. Any other personal data are not required. Healthcare providers and authorized entities can issue digital vaccination certificates on the blockchain.
 
 
 
 * **Data Privacy and Security:**
 
-The DApp employs encryption and private key management techniques to safeguard user data and maintain data privacy. Access to vaccination records is strictly controlled, ensuring only authorized users can view and update the data.
+The DApp employs encryption and private key management techniques to safeguard user data and maintain data privacy. Registering vaccination records is strictly controlled, ensuring only authorized users can. Additionally, all the personal data needed for vaccine registration is cryptographically hashed before the registration, which ensures that no personal data is evidently stored in blockchain.
 
 
 
 * **Transaction History:**
 
-Any node in the network can see and verify any transaction, making the system transparent. The transaction history is transparent and verifiable, providing authorities with a comprehensive overview of the requestor’s vaccination history.
+Any node in the network can see and verify any transaction, making the system transparent. The transaction history is transparent and verifiable, providing authorities with a comprehensive overview of the transactions.
 
 
 
@@ -159,7 +160,7 @@ The smart contract development process begins with defining the data structures 
 
 * **Frontend Development (React):**
 
-Frontend development involves creating the user interface and designing interactive components. The user interface is designed to be responsive, visually appealing, and user-friendly. React components are used to manage the state and facilitate dynamic updates while the Bootstrap framework provides a more visually appealing interface.
+Frontend development involves creating the user interface and designing interactive components. The user interface is designed to be responsive, visually appealing, and user-friendly. React components are used to manage the state and facilitate dynamic updates while the Bootstrap framework provides a more visually appealing interface with responsive layouts and pre-styled components.
 
 
 
@@ -171,31 +172,30 @@ Web3.js serves as the crucial bridge enabling the integration of the backend (sm
 
 * **Testing and Quality Assurance Procedures:**
 
-Comprehensive testing procedures, including unit testing on every single smart contracts' functions, have been conducted to identify and resolve any potential issues or bugs. Quality assurance measures ensure the DApp meets the desired performance, security, and usability standards.
-
+Comprehensive testing procedures, including unit testing on smart contracts' functions, have been conducted to identify and resolve any potential issues or bugs.
 
 # **_User Guide & Instructions_**
 
 The preferred method for users to access the application interface is through the Metamask program. This program operates as a browser extension, enabling users to log into the application by linking their Ethereum wallets and private keys with Metamask. Within the application, Metamask carries out user verification using digital signatures. Each transaction is confirmed via Metamask, as users load their Ethereum wallets onto Metamask with their private keys. These private keys are used to sign transactions, ensuring user identity verification. \
-The smart contract is developed using Truffle and then incorporated into the Ganache blockchain platform. Upon loading the smart contract, the constructor section within the contract is executed. This step defines the admin user, who introduces user privileges to the blockchain network on a one-time basis for application usage. The necessary attributes for the admin user to gain access to the application are specified within the constructor segment. \
+The smart contract is developed with Solidity and then incorporated into the Ethereum blockchain platform. Upon loading the smart contract, the constructor section within the contract is executed. This step defines the admin user, who introduces user privileges to the blockchain network on a one-time basis for application usage. The necessary attributes for the admin user to gain access to the application are specified within the constructor segment. \
 The user guide provides step-by-step instructions on how to use the BBVV System effectively. It covers every aspect of the DApp, from registration to vaccine verification. Note that the content of the frontend page is dynamic, and changes according to which account is currently logged in the Metamask wallet. In the following, a list of all the action that can be performed by every type of account:
 
 
 
 * **Actions that can be performed only by system administrator:**
 
-    In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with administrator privileges, i.e. with the account that deployed first the contracts to the blockchain. These actions include:
+In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with administrator privileges, i.e. with the account that deployed first the contracts to the blockchain. These actions include:
 
     * _Registration of vaccine (adding a new vaccine to the system):_
 
-    Scroll down until the “Add Vaccine” section and then insert the vaccine code. The standardization of vaccine code names is nothing of our concern, but it would be decided and agreed by the state authority.
+Scroll down until the “Add Vaccine” section and then insert the vaccine code. The standardization of vaccine code names is nothing of our concern, but it would be decided and agreed by the state authority.
 
 
 <img width="1302" alt="add vaccine" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/03d17596-34b9-4b6e-ac3a-f1c238c96ecb">
 
 
 
-   * _Granting an account superior privileges:_
+    * _Granting an account superior privileges:_
   
 Administrator can decide to make an account become an _authorized user_: scroll down to the “Add authorized user” section and enter the public address of the account; finally, press “Add”.
 
@@ -210,10 +210,10 @@ The administrator can also decide to make an account an _entity_. In order to pe
 
 
 
-   * _Adding a requirement to an entity:_
+    * _Adding a requirement to an entity:_
 
   
-Scroll down to the “Add requirement” section; then, select the desired entity from the dropdown menu; a list of all existing entities will be shown; finally, add the vaccine code to add to that entity’s constraints and press the “Add” button. Note that if you wrote a non existing vaccine code, the system correctly wouldn’t allow it, notifying the error back to the user.
+Scroll down to the “Add requirement” section; then, select the desired entity from the dropdown menu; a list of all existing entities will be shown; finally, add the vaccine code to add to that entity’s requirements and press the “Add” button. Note that if you wrote a non existing vaccine code, the system correctly wouldn’t allow it, notifying the error back to the user.
 
 <img width="1302" alt="add requirement" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/7cb26f9c-ca2d-4121-b9a1-c9dcb3ad268b">
 
@@ -223,12 +223,12 @@ Scroll down to the “Add requirement” section; then, select the desired entit
 
 
   
-In order to perform these kinds of actions, you need to be logged in in your Metamask wallet with authorized user privileges, i.e. with the account that has granted super privileges by the system administrator. In this case the possible action is only one, and it is:
+In order to perform these kinds of actions, you need to be logged in to your Metamask wallet with authorized user privileges, i.e. with the account that has been granted privileges by the system administrator. In this case, the possible action is only one, and it is:
 
-   * _Giving a vaccine to a recipient:_
+    * _Giving a vaccine to a recipient:_
 
 
-After logging in as authorized user, locate the "Register vaccine" card. Then, insert the unique user identifier (following the adopted standard) and subsequently the country code (e.g. "IT", "EN", "DE", etc...) and the vaccine code. The vaccine code must be one approved by the central authority, i.e. it has to be some from the set the admin had created. If the vaccine code does not exist, the vaccination registration won't be allowed.
+After logging in as an authorized user, locate the "Register vaccine" card. Then, insert the unique user identifier (following the adopted standard) and subsequently the country code (e.g. "IT", "EN", "DE", etc...) and the vaccine code. The vaccine code must be one approved by the central authority, i.e. it has to be some from the set the admin had created. If the vaccine code does not exist, vaccination registration won't be allowed.
 
 <img width="1303" alt="give vaccine" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/870783f1-6ff9-4c8a-907f-a93c005186c2">
 
