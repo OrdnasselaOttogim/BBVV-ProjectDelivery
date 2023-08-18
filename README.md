@@ -56,7 +56,7 @@ The DApp implements three crucial smart contracts to manage various functionalit
     * _OnlyAdmin()_: A custom modifier that allows certain functions to be executed only by the admin. If the sender has a different address than the admin's, the modifier throws an error.
     * _authorizedUserList_: A mapping that associates addresses with a boolean value indicating whether the addresses are authorized users.
     * _vaccineList_: A mapping that links the string type vaccine codes to boolean values.
-    * _addressToEntity_: A mapping that associates addresses with an _Entity _struct.
+    * _addressToEntity_: A mapping that associates addresses with an _Entity_ struct.
     * _entityList_: A mapping that associates the entity indices with uint256 type to their corresponding entity addresses.
     * _Events_: The contract emits several events to notify external systems about changes.
         * _EntityAdded_: Emitted when a new entity is registered.
@@ -71,13 +71,13 @@ The DApp implements three crucial smart contracts to manage various functionalit
         * _getVaccineRequirementList_: An external view type function that retrieves the list of required vaccines for a specific entity.
         * _entityExists_: An external view type function that checks if an entity exists based on its entity.
 * **Vaccine Registry:** The Vaccine Registry is responsible for storing vaccination to keep track of recipients’ vaccine records. The contract interacts with the SystemManager contract to ensure authorized access and validation of vaccine codes. The contract has several components and functionalities:
-    * _sm_: A public variable that holds an instance of the _SystemManager _contract.
+    * _sm_: A public variable that holds an instance of the _SystemManager_ contract.
     * _constructor_: The constructor initializes variable sm with a provided deployed SystemManager contract address.
     * _recipientVaccineStatus_: A mapping that associates a hash of the recipient's information and vaccine code with a boolean value, indicating vaccination status.
     * _Recipient_: A struct that contains:
         * _id_: String type identifier of the user.
         * _countryCode_: String type code of the country of the user.
-    * _OnlyAuthorized()_: A modifier that ensures only authorized users, as determined by the _SystemManager _contract, can use certain functions.
+    * _OnlyAuthorized()_: A modifier that ensures only authorized users, as determined by the _SystemManager_ contract, can use certain functions.
     * Events:
         * _vaccineAddedToRecipient_: Emitted when a hashed vaccine information is added to the system.
     * Functions:
@@ -88,9 +88,11 @@ The DApp implements three crucial smart contracts to manage various functionalit
 * **Eligibility Checker:** The Eligibility Checker contract is designed to determine the eligibility of a recipient for different entities based on their vaccine requirements and the vaccine of the recipients. It ensures that only eligible individuals can access certain entities. The contract has several components and functionalities:
     * _sm_: A public variable that holds an instance of the SystemManager contract.
     * _vr_: A public variable that holds an instance of the VaccineRegistry contract.
-    * _constructor_: The constructor initializes variables sm and vr with the deployed contract addresses of SystemManager and VaccineRegistry.
+    * _constructor_: The constructor initializes variables _sm_ and _vr_ with the deployed contract addresses of SystemManager and VaccineRegistry.
     * Functions:
-        * _isEligible_: Determines whether a recipient is eligible for accessing an entity according to the requirements of an entity and the vaccination of the recipient. It takes _entityIndex_ and _Recipient _struct as inputs and returns a boolean value indicating eligibility. It iterates through the vaccine requirement list of the specified entity, checking if the recipient is vaccinated for each required vaccine using the _isVaccinated _function in _VaccineRegistry _contract.à
+        * _isEligible_: Determines whether a recipient is eligible for accessing an entity according to the requirements of an entity and the vaccination of the recipient. It takes _entityIndex_ and _Recipient_ struct as inputs and returns a boolean value indicating eligibility. It iterates through the vaccine requirement list of the specified entity, checking if the recipient is vaccinated for each required vaccine using the _isVaccinated_ function in _VaccineRegistry_ contract.
+     
+          
 ### **Ethereum Blockchain**
 
 The Ethereum blockchain serves as the decentralized ledger that stores all vaccination records in a tamper-proof and immutable manner. Each vaccine transaction is recorded as a block on the blockchain, forming an unbroken chain of data. The decentralized nature of the blockchain ensures that no single entity has control over the data, mitigating the risk of data manipulation or unauthorized access.
