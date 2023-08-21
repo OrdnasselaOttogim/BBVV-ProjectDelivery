@@ -54,7 +54,7 @@ export default class CheckEligibility extends Component {
                             {(this.state.isEligible) ?
                                 <Modal.Body><p className='p-2 fs-4 text-center'>The recipient with id {this.state.recipientId} and country code {this.state.countryCode} is eligible for entity {this.state.entityName}</p></Modal.Body>
                                 :
-                                <Modal.Body><p className='p-2 fs-4 text-center'>The recipient is not eligible</p></Modal.Body>
+                                <Modal.Body><p className='p-2 fs-4 text-center'>The recipient with id {this.state.recipientId} and country code {this.state.countryCode} is NOT eligible for entity {this.state.entityName}</p></Modal.Body>
                             }
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={() => {
@@ -101,7 +101,7 @@ export default class CheckEligibility extends Component {
                                     <div className="spinner-border mt-4" role="status" />
                                     :
                                     <Button className='mt-5 w-25' size='lg' variant="outline-secondary" type="submit">
-                                        Add
+                                        Check
                                     </Button>
                             }
                             <p className="fw-bold text-danger fs-6">

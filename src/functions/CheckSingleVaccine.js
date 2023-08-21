@@ -45,9 +45,9 @@ export default class CheckSingleVaccine extends Component {
                         <Modal show={this.state.show} size="xxl" centered>
                             <Modal.Header closeButton />
                             {(this.state.isVaccinated) ?
-                                <Modal.Body><p className='p-2 fs-4 text-center'>The recipient with id {this.state.recipientId} and country code {this.state.countryCode} has vaccine with code {this.state.vaccineCode}</p></Modal.Body>
+                                <Modal.Body><p className='p-2 fs-4 text-center'>The recipient with id {this.state.recipientId} and country code {this.state.countryCode} has the vaccine with code {this.state.vaccineCode}</p></Modal.Body>
                                 :
-                                <Modal.Body><p className='p-2 fs-4 text-center'>The recipient with id {this.state.recipientId} and country code {this.state.countryCode} does not have vaccine with code {this.state.vaccineCode}</p></Modal.Body>
+                                <Modal.Body><p className='p-2 fs-4 text-center'>The recipient with id {this.state.recipientId} and country code {this.state.countryCode} does NOT have the vaccine with code {this.state.vaccineCode}</p></Modal.Body>
                             }
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={() => {
@@ -93,7 +93,7 @@ export default class CheckSingleVaccine extends Component {
                                     <div className="spinner-border mt-4" role="status" />
                                     :
                                     <Button className='mt-5 w-25' size='lg' variant="outline-secondary" type="submit">
-                                        Add
+                                        Check
                                     </Button>
                             }
                             <p className="fw-bold text-danger fs-6">
