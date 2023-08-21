@@ -234,6 +234,22 @@ After logging in as an authorized user, locate the "Register vaccine" card. Then
 
 <img width="1303" alt="give vaccine" src="https://github.com/OrdnasselaOttogim/BlockchainProject/assets/71702362/870783f1-6ff9-4c8a-907f-a93c005186c2">
 
+* **Actions that can be performed only by both normal users and authorized users:**
+
+
+No authorization is needed to use these functionalities. In this way either an authorized user can check the status of a common user, or a common user can check their own status without the need of extra credentials.
+
+   * _Checking the eligibility of a user:_
+
+
+To check if the user is eligible to access a certain entity in the list, locate the “Check Eligibility” card. Then, find the entity you wish to see if the user is eligible from the “List of Entities”. Following that, insert the id and the country code of the recipient. Finally, click the “Check” button.
+
+   * _Checking the single vaccine of a user:_
+
+
+To check if the user has a certain vaccine, locate the “Check Single Vaccine” card. Then, insert the id, and the country code of the recipient, and the code of the vaccine that needs to be verified. Finally, click the “Check” button. The system will return the information.
+
+
 
 # **_Business Model Canvas_**
 
